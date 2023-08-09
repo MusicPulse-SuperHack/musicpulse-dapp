@@ -27,4 +27,11 @@ export default defineConfig({
    * @see https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md
    */
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "./src/styles.css";',
+      },
+    },
+  },
 });
