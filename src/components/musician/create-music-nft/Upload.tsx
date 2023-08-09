@@ -7,16 +7,11 @@ function Upload({ setStep, step }: any) {
     setStep(2);
   };
   return (
-    <div className="p-16 h-screen">
-      <Text
-        fontWeight={400}
-        fontSize="24px"
-        lineHeight="38.73px"
-        paddingTop="20px"
-      >
+    <div className="p-8 h-screen">
+      <Text fontWeight={400} fontSize="24px" lineHeight="38.73px">
         Create Music NFT
       </Text>
-      <div className="pt-36 flex items-center justify-center">
+      <div className="pt-24 flex items-center justify-center">
         <div className="relative w-[427px] h-[427px] border-4 border-dashed rounded-full">
           <img
             src={icon}
