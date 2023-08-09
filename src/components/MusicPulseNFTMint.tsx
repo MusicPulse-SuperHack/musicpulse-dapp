@@ -9,6 +9,7 @@ import {
   usePrepareMusicPulseNftMint,
   useMusicPulseNftMint,
   useMusicPulseNftBalanceOf,
+  useMusicPulseNftSymbol,
 } from "../generated";
 
 /**
@@ -37,11 +38,11 @@ export function MusicPulseNFTMint() {
    * Automatically generated hook to execute the transaction
    * @see https://wagmi.sh/react/execute-hooks/useContractWrite
    */
-  const { data, write } = useMusicPulseNftMint({
+  const { data: mintReturnedData, write } = useMusicPulseNftMint({
     ...config,
     onSuccess: () => {
       //setValue("")
-      console.log("Minted NFT data", data);
+      console.log("value", value);
     },
   });
 
@@ -52,13 +53,14 @@ export function MusicPulseNFTMint() {
   const { refetch, data: balanceOf } = useMusicPulseNftBalanceOf({
     args: [address!],
   });
+  const { refetch: refetchNftSymbol, data: nftSymbol } = useMusicPulseNftSymbol();
 
   /**
    * Wagmi hook to wait for the transaction to be complete
    * @see https://wagmi.sh/docs/hooks/useWaitForTransaction
    */
   const { isLoading } = useWaitForTransaction({
-    hash: data?.hash,
+    hash: mintReturnedData?.hash,
     onSuccess: () => refetch(),
   });
 
@@ -66,17 +68,26 @@ export function MusicPulseNFTMint() {
     <div>
       <h2>MusicPulseNFTMint</h2>
       <div>
+        Current NFT symbol: {nftSymbol || "Unknown"}
+      </div>
+      <div>
+        User address: {address || "Unknown"}
+      </div>
+      <div>
         Current balanceOf: {balanceOf ? balanceOf?.toString() : "none"}
+      </div>
+      <div>
+        isLoading: {isLoading ? "true" : "false"}
       </div>
       <input
         disabled={isLoading}
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      <button disabled={!write || !isLoading} onClick={() => write?.()}>
+      <button disabled={!write || isLoading} onClick={() => write?.()}>
         Mint
       </button>
-      {isLoading && <ProcessingMessage hash={data?.hash} />}
+      {/* isLoading && <ProcessingMessage hash={mintReturnedData?.hash} /> */}
       <div>
         Gas fee: <span>{config.request?.gas?.toString()}</span>
       </div>
