@@ -13,6 +13,7 @@ function Upload({ setStep, step }: any) {
       </Text>
       <div className="pt-24 flex items-center justify-center">
         <div className="relative w-[427px] h-[427px] border-4 border-dashed rounded-full">
+          
           <img
             src={icon}
             alt="icon image"
