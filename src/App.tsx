@@ -1,7 +1,7 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 
-import { Attestooooooor } from "./components";
+import { Attestooooooor, MusicPulseNFTMint } from "./components";
 
 export function App() {
   /**
@@ -20,7 +20,7 @@ export function App() {
       {isConnected && (
         <>
           <hr />
-          <Attestooooooor />
+          <MusicPulseNFTMint />
           <hr />
         </>
       )}
