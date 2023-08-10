@@ -47,6 +47,8 @@ const Navbar = () => {
           Create
         </Link>
         <Link
+          as={ReactLink}
+          to="/collection"
           fontFamily="body"
           mr={4}
           color="lightBlack"

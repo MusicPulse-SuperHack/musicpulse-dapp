@@ -3,6 +3,7 @@ import { useAccount } from "wagmi";
 import Navbar from "./components/layout/Navbar";
 import Fans from "./pages/Fans";
 import CreateMusicNft from "./pages/CreateMusicNft";
+import Collection from "./pages/Collection";
 import "./index.css";
 
 import { Attestooooooor, MusicPulseNFTMint } from "./components";
@@ -35,6 +36,7 @@ export function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Fans />} />
+        <Route path="/collection" element={<Collection />} />
         <Route path="/create" element={<CreateMusicNft />} />
         {/* <Route path="/" element={<h1>Home</h1>} /> */}
       </Routes>

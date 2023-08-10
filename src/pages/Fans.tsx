@@ -58,13 +58,13 @@ function Fans() {
           </Flex>
           <Spacer />
           <Flex>
-            <IconButton aria-label='Left' bg='white' icon={<HiChevronLeft />} />
+            <IconButton aria-label='Left' bg='white' fontSize="30px" icon={<HiChevronLeft />} />
           </Flex>
           <Input width='50px' size='sm' value="1" ml='1' mr="3" />
           <Text mr='3'>/</Text>
           <Text mr='1'>5</Text>
           <Flex>
-            <IconButton aria-label='Left' bg='white' icon={<HiChevronRight />} />
+            <IconButton aria-label='Left' bg='white' fontSize="30px" icon={<HiChevronRight />} />
           </Flex>
         </Flex>
 
