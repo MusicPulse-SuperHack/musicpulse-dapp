@@ -4,7 +4,7 @@ import Navbar from "./components/layout/Navbar";
 import CreateMusicNft from "./pages/CreateMusicNft";
 import "./index.css";
 
-import { Attestooooooor } from "./components";
+import { Attestooooooor, MusicPulseNFTMint } from "./components";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
 export function App() {
@@ -20,6 +20,14 @@ export function App() {
   //   <Route path="/about" component={About} />
   //   <Route path="/contact" component={Contact} />
   // </Switch>
+
+  // {isConnected && (
+  //  <>
+  //    <hr />
+  //    <MusicPulseNFTMint />
+  //    <hr />
+  //  </>
+  // )}
 
   return (
     <HashRouter>
