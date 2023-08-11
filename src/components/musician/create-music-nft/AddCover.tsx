@@ -28,15 +28,16 @@ function AddCover({ setStep, step, setImage }: any) {
             className="absolute inset-0 m-auto w-[71px] h-[62.13px
             ]"
           />
-          <p
-            className="absolute inset-0 m-auto mt-[250px] text-center font-semibold"
+          <label
+            htmlFor="photo"
+            className="absolute inset-0 m-auto mt-[250px] text-center font-semibold cursor-pointer"
           >
-            <span className="text-[#2237F1] text-xl font-medium underline">
-              AddCover
+            <span className="text-[#2237F1] text-xl font-medium underline" >
+              Add
             </span>{" "}
             album cover
-          </p>
-          <input type='file' id='photo' onChange={saveFile} />
+          </label>
+          <input type='file' id='photo' onChange={saveFile} style={{ display: 'none' }} />
         </div>
       </div>
 
