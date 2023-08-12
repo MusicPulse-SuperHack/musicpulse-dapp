@@ -6,13 +6,12 @@ import { IoIosArrowBack } from "react-icons/io";
 import PreviewDetails from "./PreviewDetails";
 import AddDetailsForm from "./AddDetailsForm";
 
-function AddDetails({ setStep, step }: any) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+function AddDetails({ setStep, image, name, setName, description, setDescription, storeNFT }: any) {
   const [isPreview, setIsPreview] = useState(false);
 
   const saveFile = async () => {
-    setStep(4);
+    await storeNFT();
+    //setStep(4);
   };
   return (
     <div className="p-8 h-screen">
@@ -27,26 +26,45 @@ function AddDetails({ setStep, step }: any) {
               alt="icon image"
               className="absolute inset-0 m-auto ml-[210px] z-[-10]"
             />
-            <img
-              src={cover}
-              alt="icon image"
-              className="absolute inset-0 m-auto w-full h-full object-cover mt-[10px]"
-            />
+            {image
+              ? <img
+                src={URL.createObjectURL(image)}
+                alt="icon image"
+                className="absolute inset-0 m-auto w-full h-full object-cover mt-[10px] bg-black"
+              />
+              : <img
+                src={cover}
+                alt="icon image"
+                className="absolute inset-0 m-auto w-full h-full object-cover mt-[10px]"
+              />}
           </div>
         </div>
-        {isPreview ? <PreviewDetails /> : <AddDetailsForm />}
+        {isPreview
+          ? <PreviewDetails name={name} description={description} />
+          : <AddDetailsForm name={name} setName={setName} description={description} setDescription={setDescription} />}
       </div>
       <div className="flex items-center justify-center mt-12 ">
-        <button className="flex items-center px-4 py-2 border border-[#E1E1E1] rounded hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 mr-8 text-[#4B4B4B]">
+        <button
+          className="flex items-center px-4 py-2 border border-[#E1E1E1] rounded hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 mr-8 text-[#4B4B4B]"
+          onClick={() => setStep(2)}
+        >
           <IoIosArrowBack className="mr-2" /> Back
         </button>
-        <button
-          className="px-4 py-2 border border-[#E1E1E1
+        {!isPreview
+          ? <button
+            className="px-4 py-2 border border-[#E1E1E1
+  ] rounded hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 w-[160px] text-[#4B4B4B]"
+            onClick={() => setIsPreview(true)}
+          >
+            Next
+          </button>
+          : <button
+            className="px-4 py-2 border border-[#E1E1E1
 ] rounded hover:bg-gray-100 focus:outline-none focus:ring focus:border-blue-300 w-[160px] text-[#4B4B4B]"
-          onClick={() => setIsPreview(true)}
-        >
-          Next
-        </button>
+            onClick={() => saveFile()}
+          >
+            Mint
+          </button>}
       </div>
     </div>
   );

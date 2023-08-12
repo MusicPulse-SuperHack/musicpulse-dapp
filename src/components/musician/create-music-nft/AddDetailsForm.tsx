@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 
-function AddDetailsForm() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-
+function AddDetailsForm({ name, setName, description, setDescription }: any) {
   const checkLength = (input) => {
     if (description.length < 100) {
     }
   };
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async () => { };
   const saveFile = async () => {
     setStep(4);
   };
