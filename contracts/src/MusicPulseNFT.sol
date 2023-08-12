@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.17;
 
 // @dev https://github.com/OpenZeppelin/openzeppelin-contracts/tree/release-v4.7/contracts/token/ERC721
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
