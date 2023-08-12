@@ -16,6 +16,7 @@ contract MusicPulseNFT is ERC721URIStorage {
 
   /**
    * @dev mint a MusicPulseNFT token with tokenURI_ and assign ownership to to_ address.
+   * @dev IERC721 Transfer event will be emitted
    * @param to_ address to assign ownership to.
    * @param tokenURI_ token URI to assign to the minted token.
    * @return uint256 of the minted token id.
