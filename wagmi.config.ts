@@ -35,6 +35,9 @@ export default defineConfig({
         MusicPulseNFT: {
           [chains.foundry.id]: "0x36C02dA8a0983159322a80FFE9F24b1acfF8B570",
         },
+        MusicPulseERC6551Account: {
+          [chains.foundry.id]: "0x809d550fca64d94Bd9F66E60752A544199cfAC3D",
+        }
       },
     }),
     /**
